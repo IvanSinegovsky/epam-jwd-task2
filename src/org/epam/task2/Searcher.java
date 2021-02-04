@@ -54,9 +54,13 @@ public class Searcher {
         }
     }
 
-    public String searchTheCheapestAppliance() {
+    public void theCheapestApplianceOutput() {
+        System.out.println(theCheapestApplianceSearch());
+    }
+
+    private String theCheapestApplianceSearch() {
         String applianceInfo = null;
-        double lowestPrice = 0.0;
+        double lowestPrice;
 
         try {
             FileReader fr = new FileReader(appliancesFile);
@@ -92,10 +96,9 @@ public class Searcher {
     }
 
     private double appliancePrice(String applianceInfo) {
-
         String[] applianceProperties = applianceInfo.split(",");
-        double appliancePrice;
         String propertySubstr;
+        double appliancePrice;
 
         for (String applianceProperty : applianceProperties) {
 

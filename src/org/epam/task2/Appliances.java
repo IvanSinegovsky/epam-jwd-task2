@@ -9,13 +9,13 @@ public enum Appliances {
     SPEAKERS("Speakers"),
     KETTLE("Kettle");
 
-    private String applianceNameToFile;
+    private String applianceNameInFile;
 
     Appliances(String applianceNameToFile) {
-        this.applianceNameToFile = applianceNameToFile;
+        this.applianceNameInFile = applianceNameToFile;
     }
 
     public String getApplianceNameToFile() {
-        return this.applianceNameToFile;
+        return this.applianceNameInFile;
     }
 }

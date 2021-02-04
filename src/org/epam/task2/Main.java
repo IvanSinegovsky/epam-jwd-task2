@@ -16,6 +16,8 @@ public class Main {
 
         Searcher searcher = new Searcher();
 
+        System.out.println(searcher.searchTheCheapestAppliance());
+
         searcher.outputByName("VacuumCleaner");
     }
 }

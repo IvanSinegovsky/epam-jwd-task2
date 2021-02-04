@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Searcher {
+
     private File appliancesFile = new File("appliances_db.txt");
 
 
@@ -25,12 +26,6 @@ public class Searcher {
             System.out.println(applianceInfo);
         }
     }
-/*
-
-    public void searchTheCheapestByName(String applianceName) {
-
-    }
-*/
 
     private List<String> fileParse(String applianceName) {
         List<String> appliancesInfos = new ArrayList<>();
@@ -58,8 +53,59 @@ public class Searcher {
             return appliancesInfos;
         }
     }
-/*
-    private String appliancesInfosModify(String appliancesInfos) {
 
-    }*/
+    public String searchTheCheapestAppliance() {
+        String applianceInfo = null;
+        double lowestPrice = 0.0;
+
+        try {
+            FileReader fr = new FileReader(appliancesFile);
+            Scanner scanner = new Scanner(fr);
+
+            if (scanner.hasNext()) {
+                applianceInfo = scanner.nextLine();
+                lowestPrice = appliancePrice(applianceInfo);
+
+                double currentPrice;
+                String currentApplianceInfo;
+
+                while (scanner.hasNext()) {
+                    currentApplianceInfo = scanner.nextLine();
+                    currentPrice = appliancePrice(currentApplianceInfo);
+
+                    if (currentPrice < lowestPrice) {
+                        applianceInfo = currentApplianceInfo;
+                        lowestPrice = currentPrice;
+                    }
+                }
+            } else {
+                return null;
+            }
+
+            fr.close();
+            scanner.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            return applianceInfo;
+        }
+    }
+
+    private double appliancePrice(String applianceInfo) {
+
+        String[] applianceProperties = applianceInfo.split(",");
+        double appliancePrice;
+        String propertySubstr;
+
+        for (String applianceProperty : applianceProperties) {
+
+            propertySubstr = applianceProperty.substring(1, 6);
+            if (propertySubstr.equals("PRICE")) {
+                appliancePrice = Double.valueOf(applianceProperty.substring(7));
+                return appliancePrice;
+            }
+        }
+
+        return -1.0;
+    }
 }

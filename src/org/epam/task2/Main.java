@@ -18,6 +18,6 @@ public class Main {
 
         System.out.println(searcher.searchTheCheapestAppliance());
 
-        searcher.outputByName("VacuumCleaner");
+        searcher.outputByName(Appliances.KETTLE.getApplianceNameToFile());
     }
 }

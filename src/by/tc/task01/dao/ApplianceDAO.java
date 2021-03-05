@@ -1,8 +1,12 @@
 package by.tc.task01.dao;
 
-import by.tc.task01.entity.Appliance;
-import by.tc.task01.entity.criteria.Criteria;
+import by.tc.task01.appliance.Appliance;
+
+import java.io.IOException;
+import java.util.List;
 
 public interface ApplianceDAO {
-	Appliance find(Criteria criteria);
+    List<Appliance> findByName(String applianceName) throws IOException;
+    public Appliance findTheCheapest() throws IOException;
+    void write(Appliance appliance) throws IOException;
 }

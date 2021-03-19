@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApplianceDAOImpl implements ApplianceDAO {
+public class ApplianceDAOImpl implements ApplianceDAO {// определялось, что в результате вы должны создать объект-электроприбор определенного типа - т.е.в оспользоваться фабрикой, билдером..... Т.е. условие задание не выполнено
     private final File appliancesDb = Paths.get("appliances_db.txt").toFile();
 
     @Override
@@ -27,7 +27,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
             line = reader.readLine();
         }
 
-        fr.close();
+        fr.close();// эти методы вызываются только в блоке finally
         reader.close();
 
         return correctAppliances;

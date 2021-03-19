@@ -2,7 +2,7 @@ package by.tc.task01.appliance;
 
 import java.util.List;
 
-public class Appliance {
+public class Appliance {// а куда делась иерерхия электроприборов?
     private String applianceName;
     private List<String> applianceProperties;
 
